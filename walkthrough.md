@@ -79,11 +79,11 @@ This is the actual api definition.
 - It starts with importing some modules from flask and stdlib.
 - Then it does some flask boilerplate, this is what gives us the nice routing syntax.
 - next, we're opening the zips.json file and converting it to a python dict that we use to return zipcode metadata. 
-- the next 3 blocks tell flask which logic to execute when it receives http requests. the function under each @app.route decorator returns the data that route needs. you'll notice that `/<zip>` and `/zips/<zip>` handlers are being passed an input (zip). that input is being supplied by flask and is coming out of the URI path from the http request. ie: if you hit localhost:5000/zips/11215, the value would be 11215
-- the last bit is some boilerplate that tells us to start the flask webserver if the programs name is main, and start it listening for requests on port 5000 across all network interfaces. we need this, otherwise the app only runs if you were to call it via `flask run`, which i don't like.
+- the next 3 blocks tell flask which logic to execute when it receives http requests. the function under each @app.route decorator returns the data that route needs. you'll notice that `/<zip>` and `/zips/<zip>` handlers are being passed an input (zip). that input is being supplied by flask and is coming out of the URI path from the http request. ie: if you queried `localhost:5000/zips/11215`, the value would be 11215
+- the last bit is some boilerplate that tells us to start the flask webserver if the programs name is `__main__`, and start it listening for requests on port 5000 across all network interfaces. we need this, otherwise the app only runs if you were to call it via `flask run`, which i don't like.
 
 ## program flow
-Just as a reference, map, i'm going to outline the conceptual flow of how the server is being executed:
+Just as a reference/map, i'm going to outline the conceptual flow of how the server is being executed:
 
 - init value from docker-compose.yml tells docker to run tini, which will itself call the ENTRYPOINT of the container image
 - docker ENTRYPOINT from dockerfile points to entrypoint.sh
