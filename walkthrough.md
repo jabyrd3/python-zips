@@ -72,7 +72,7 @@ This is arguably the most important bit of this repo. The dockerfile is a series
     + finally, this line tells docker that when you run this container, the process to spawn. our entrypoint sets some important environment variables and then calls `exec opentelemetry-instrument python3 /zips/entry.py`, which runs our flask server with the open-telemetry automatic instrumentation
 
 ## explanation of opentelemetry-instrument
-This command is installed by one of the opentelemetry pip packages. You basically call it and tell it what command to run, (in our case that is `python3 /zips/entry.py`). What it does, is figure out what the program is using (in our case flask, amongst other stuff) and sets up the instrumentation of all the flask methods/functions that we care about tracing. Then it runs our command normally.
+This command is installed by one of the opentelemetry pip packages. You basically call it and tell it what command to run, (in our case that is `python3 /zips/entry.py`). It then figures out what the program is using (in our case flask, amongst other stuff) and sets up the instrumentation of all the flask methods/functions that we care about tracing. Then it runs our command normally.
 
 ## explanation of entry.py
 This is the actual api definition.
