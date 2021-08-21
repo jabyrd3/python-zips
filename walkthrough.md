@@ -23,7 +23,7 @@
 - Dockerfile
     + the dockerfile tells docker how to build your container image (see docker, above). Later i'll go through line-by-line and explain what each line is doing. for now though all you need to know is that a dockerfile is a series of commands that are issued to the docker image builder that tell it how to put that filesystem together. the output of `docker build .` is a flat docker image file.
 - docker-compose.yml
-    + this file defines the various configuration options that youd give docker if you were running it directly via the command line. if you were to run this without tilt.dev, you would do `docker build -t zips:latest && docker-compose up` to start the container. 
+    + this file defines the various configuration options that youd give docker if you were running it directly via the command line. if you were to run this without tilt.dev, you could do `docker-compose up` to start the container. 
 - entrypoint.sh
     + the last line in the dockerfile is an ENTRYPOINT command. this tells docker that this container needs to execute entrypoint.sh, which is a bit of bash. it sets a few important environment variables, then starts our flask server via opentelemetry-instrument
 - entry.py
