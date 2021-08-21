@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import json
+
 app = Flask(__name__)
 f = open('/zips/zips.json')
 zips = json.load(f)
@@ -21,3 +22,5 @@ def get_zip(zip):
         if i['zip'] == zip:
             data = i
     return data
+if __name__ == "__main__":
+   app.run(host="0.0.0.0", port=5000)
