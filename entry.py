@@ -6,7 +6,6 @@ zips = json.load(f)
 
 @app.route("/<zip>")
 def render(zip):
-    print('butts')
     for i in zips['data']:
         if i['zip'] == zip:
             data = i
@@ -18,7 +17,6 @@ def get_zips():
 
 @app.route("/zips/<zip>")
 def get_zip(zip):
-    # print(zips[].keys())
     for i in zips['data']:
         if i['zip'] == zip:
             data = i
